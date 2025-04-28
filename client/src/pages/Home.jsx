@@ -14,13 +14,13 @@ const Home = () => {
     <div>
         <Hero/>
         <Subsection/>
-        <Craftsmanship/>
         <PromotionGrid/>
         <CategoryRow/>
         <PromotionGrid/>
         <ProductGrid/>
         <BannerGrid/>
         <Collections/>
+        <Craftsmanship/>
         <StoreLocator/>
     </div>
   )
