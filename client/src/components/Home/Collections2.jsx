@@ -2,12 +2,12 @@ import React from 'react';
 import { Diamond, Award, Shield, Clock } from 'lucide-react';
 
 const CraftsmanshipFeature = ({ icon: Icon, title, description }) => (
-  <div className="text-center p-6 md:p-8 bg-cream-50 rounded-2xl transition-transform hover:scale-105 duration-300">
-    <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 mb-4 md:mb-6 bg-gold-400/10 rounded-full">
-      <Icon size={28} className="text-gold-400" />
+  <div className="text-center p-6 md:p-8 bg-[#FAF9F6] rounded-2xl shadow-md hover:shadow-lg transition-all duration-300">
+    <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 mb-5 bg-[#F4E7D4] rounded-full">
+      <Icon size={32} className="text-[#BFA67A]" />
     </div>
-    <h3 className="text-lg md:text-xl font-serif font-bold mb-2 md:mb-3">{title}</h3>
-    <p className="text-gray-600 text-sm md:text-base">{description}</p>
+    <h3 className="text-lg md:text-xl font-serif font-semibold mb-2 text-[#1A1A1A]">{title}</h3>
+    <p className="text-gray-500 text-sm md:text-base leading-relaxed">{description}</p>
   </div>
 );
 
@@ -36,23 +36,31 @@ const Craftsmanship = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-20 md:py-28 bg-white">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-4xl font-serif font-bold mb-3 md:mb-4">The Art of Fine Jewelry</h2>
-          <p className="text-gray-600 text-sm md:text-base">
-            With over two decades of expertise, we combine traditional craftsmanship with modern innovation to create timeless pieces that tell your unique story.
+        
+        {/* Title Section */}
+        <div className="max-w-2xl mx-auto text-center mb-14">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4 text-[#1A1A1A]">
+            The Art of Fine Jewelry
+          </h2>
+          <p className="text-gray-500 text-base md:text-lg leading-relaxed">
+            With over two decades of expertise, we blend traditional craftsmanship with modern innovation to create timeless pieces that tell your unique story.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 md:mb-24">
+        {/* Features */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {features.map((feature, index) => (
             <CraftsmanshipFeature key={index} {...feature} />
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
-          <div className="relative overflow-hidden rounded-2xl group">
+        {/* Image + Content Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Image */}
+          <div className="relative overflow-hidden rounded-2xl group shadow-lg">
             <img 
               src="https://images.pexels.com/photos/5370706/pexels-photo-5370706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
               alt="Jewelry crafting" 
@@ -60,35 +68,39 @@ const Craftsmanship = () => {
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
           </div>
-          <div className="space-y-4 md:space-y-6 px-0 md:px-4">
-            <h3 className="text-2xl md:text-3xl font-serif font-bold">Crafted with Passion</h3>
-            <p className="text-gray-600 text-sm md:text-base">
+
+          {/* Text Content */}
+          <div className="space-y-6 md:space-y-8 px-0 md:px-6">
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#1A1A1A]">
+              Crafted with Passion
+            </h3>
+            <p className="text-gray-500 text-base md:text-lg leading-relaxed">
               Every piece of jewelry that leaves our workshop is a testament to our dedication to excellence. Our master craftsmen combine age-old techniques with cutting-edge technology to create pieces that are both beautiful and durable.
             </p>
-            <ul className="space-y-3 md:space-y-4">
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-gold-400 rounded-full mr-3"></span>
-                <span className="text-sm md:text-base">Hand-selected premium materials</span>
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-gold-400 rounded-full mr-3"></span>
-                <span className="text-sm md:text-base">Precision crafting and quality control</span>
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-gold-400 rounded-full mr-3"></span>
-                <span className="text-sm md:text-base">Certified gemologists and artisans</span>
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-gold-400 rounded-full mr-3"></span>
-                <span className="text-sm md:text-base">Sustainable and ethical practices</span>
-              </li>
+
+            {/* List */}
+            <ul className="space-y-4">
+              {[
+                "Hand-selected premium materials",
+                "Precision crafting and quality control",
+                "Certified gemologists and artisans",
+                "Sustainable and ethical practices"
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-center">
+                  <span className="w-2.5 h-2.5 bg-[#BFA67A] rounded-full mr-3"></span>
+                  <span className="text-gray-700 text-sm md:text-base">{item}</span>
+                </li>
+              ))}
             </ul>
+
+            {/* Button */}
             <a 
               href="#about" 
-              className="inline-block mt-4 md:mt-6 px-6 md:px-8 py-2.5 md:py-3 bg-black text-white text-sm md:text-base rounded-full hover:bg-gold-400 transition-colors duration-300"
+              className="inline-block mt-6 px-8 py-3 bg-[#1A1A1A] hover:bg-[#BFA67A] text-white font-medium rounded-full text-sm md:text-base transition-all duration-300"
             >
               Learn More About Our Process
             </a>
+
           </div>
         </div>
       </div>
@@ -96,4 +108,4 @@ const Craftsmanship = () => {
   );
 };
 
-export default Craftsmanship;
+export default Craftsmanship;

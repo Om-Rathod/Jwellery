@@ -15,10 +15,9 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
   const [cartOpen, setCartOpen] = useState(false);  // State to manage cart visibility
-  
+
   const navigation = [
     { name: 'Home', href: '/' },
-
     {
       name: 'Shop',
       submenu: [
@@ -35,7 +34,6 @@ const Navbar = () => {
         { name: 'Kids Collection', href: '/shop/kids' },
       ]
     },
-  
     {
       name: 'Collections',
       submenu: [
@@ -49,7 +47,6 @@ const Navbar = () => {
         { name: 'Luxury Sets', href: '/collections/luxury' },
       ]
     },
-  
     {
       name: 'Gifts',
       submenu: [
@@ -63,9 +60,8 @@ const Navbar = () => {
         { name: 'Gift Cards', href: '/gifts/gift-cards' },
       ]
     },
-  
     {
-      name: 'Custom Design',
+      name: 'Customize',
       submenu: [
         { name: 'Design Your Own', href: '/custom/design' },
         { name: 'Upload Inspiration', href: '/custom/upload' },
@@ -91,7 +87,7 @@ const Navbar = () => {
     <nav className={`bg-white/95 backdrop-blur-xl fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'h-16 shadow-sm' : 'h-20'}`}>
       {/* Gold accent line */}
       <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent transition-opacity duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`} />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex justify-between items-center h-full">
           {/* Logo */}
@@ -112,14 +108,14 @@ const Navbar = () => {
               {navigation.map((item) => (
                 <div key={item.name} className="relative group">
                   <Link
-                    to={item.href}
-                    className={`relative px-4 py-2 font-medium font-serif text-lg ${pathname === item.href ? 'text-gold-600' : 'text-gray-800 hover:text-gold-600'} transition-colors duration-300`}
+                    to={item.href || '#'}
+                    className={`px-4 py-2 font-medium font-serif text-lg transition-colors duration-300 ${pathname === item.href ? 'text-gold-600' : 'text-gray-800 hover:text-gold-600'}`}
                   >
                     {item.name}
                   </Link>
 
                   {item.submenu && (
-                    <div className="absolute left-0 top-full mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transform transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
+                    <div className="absolute left-0 top-full mt-2 min-w-[12rem] bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transform transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
                       {item.submenu.map((subItem) => (
                         <Link
                           key={subItem.name}
@@ -137,37 +133,21 @@ const Navbar = () => {
           </div>
 
           {/* Right Side Icons */}
-          <div className="flex items-center space-x-6">
-            <motion.button
-              whileHover={{ y: -2 }}
-              className="p-2 text-gray-800 hover:text-gold-600 transition-colors relative group"
-            >
+          <div className="flex items-center space-x-4 sm:space-x-6">
+            <motion.button whileHover={{ y: -2 }} className="p-2 text-gray-800 hover:text-gold-600 transition-colors">
               <MagnifyingGlassIcon className="h-6 w-6" />
             </motion.button>
 
-            <motion.button
-              whileHover={{ y: -2 }}
-              className="p-2 text-gray-800 hover:text-gold-600 transition-colors relative group"
-            >
+            <motion.button whileHover={{ y: -2 }} className="p-2 text-gray-800 hover:text-gold-600 transition-colors">
               <UserIcon className="h-6 w-6" />
             </motion.button>
 
-            {/* Shopping Bag Icon with onClick */}
-            <motion.button
-              whileHover={{ y: -2 }}
-              onClick={() => setCartOpen(true)} // Toggle cart visibility
-              className="p-2 text-gray-800 hover:text-gold-600 transition-colors relative group"
-            >
+            <motion.button whileHover={{ y: -2 }} onClick={() => setCartOpen(true)} className="p-2 text-gray-800 hover:text-gold-600 transition-colors">
               <ShoppingBagIcon className="h-6 w-6" />
             </motion.button>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              className="lg:hidden p-2 text-gray-800 hover:text-gold-600 z-50"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Mobile menu"
-            >
+            {/* Mobile Menu Toggle */}
+            <motion.button whileHover={{ scale: 1.1 }} className="lg:hidden p-2 text-gray-800 hover:text-gold-600 z-50" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               {isMenuOpen ? (
                 <XMarkIcon className="h-8 w-8" />
               ) : (
@@ -176,57 +156,55 @@ const Navbar = () => {
             </motion.button>
           </div>
         </div>
-
-        {/* Cart Component */}
-        <AnimatePresence>
-          {cartOpen && <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />}
-        </AnimatePresence>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="lg:hidden fixed inset-0 bg-white/97 backdrop-blur-2xl pt-24"
-              style={{ background: 'radial-gradient(ellipse at top, rgba(255,255,255,0.97), rgba(255,255,255,0.95))' }}
-            >
-              <div className="px-4 pt-2 pb-6 space-y-2">
-                {navigation.map((item) => (
-                  <motion.div
-                    key={item.name}
-                    whileHover={{ x: 5 }}
-                    className="border-b border-gold-50"
-                  >
-                    <Link
-                      to={item.href}
-                      className={`block px-4 py-5 text-xl font-serif ${pathname === item.href ? 'text-gold-600 font-semibold pl-6' : 'text-gray-800 hover:text-gold-600'} transition-all duration-200`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                ))}
-                <div className="pt-10 px-4 space-y-5">
-                  <Link
-                    to="/login"
-                    className="block w-full text-center py-4 px-6 bg-gold-600 text-white rounded-lg hover:bg-gold-700 transition-colors shadow-lg hover:shadow-gold-200"
-                  >
-                    Sign In
-                  </Link>
-                  <Link
-                    to="/register"
-                    className="block w-full text-center py-4 px-6 border-2 border-gold-600 text-gold-600 rounded-lg hover:bg-gold-50 transition-colors shadow-sm"
-                  >
-                    Create Account
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+
+      {/* Cart Component */}
+      <AnimatePresence>
+        {cartOpen && <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />}
+      </AnimatePresence>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="lg:hidden fixed inset-0 bg-white/97 backdrop-blur-2xl pt-24"
+            style={{ background: 'radial-gradient(ellipse at top, rgba(255,255,255,0.97), rgba(255,255,255,0.95))' }}
+          >
+            <div className="px-4 pt-2 pb-6 space-y-2">
+              {navigation.map((item) => (
+                <motion.div key={item.name} whileHover={{ x: 5 }} className="border-b border-gold-50">
+                  <Link
+                    to={item.href || '#'}
+                    className={`block px-4 py-5 text-xl font-serif transition-all duration-200 ${pathname === item.href ? 'text-gold-600 font-semibold pl-6' : 'text-gray-800 hover:text-gold-600'}`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              ))}
+
+              {/* Mobile CTA Buttons */}
+              <div className="pt-10 space-y-5">
+                <Link
+                  to="/login"
+                  className="block w-full text-center py-4 px-6 bg-gold-600 text-white rounded-lg hover:bg-gold-700 transition-colors shadow-lg"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  to="/register"
+                  className="block w-full text-center py-4 px-6 border-2 border-gold-600 text-gold-600 rounded-lg hover:bg-gold-50 transition-colors shadow-sm"
+                >
+                  Create Account
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
