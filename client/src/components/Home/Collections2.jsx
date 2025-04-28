@@ -105,6 +105,5 @@ const Craftsmanship = () => {
   );
 };
 
-export default Craftsmanship;
 
 export default Craftsmanship;

@@ -67,3 +67,16 @@ html {
 .font-playfair {
   font-family: 'Playfair Display', serif;
 }
+@keyframes glow-pulse {
+  0% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.2; }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s infinite;
+}
+
+.drop-shadow-gold {
+  filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.4));
+}

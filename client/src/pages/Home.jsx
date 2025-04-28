@@ -20,7 +20,6 @@ const Home = () => {
         <Subsection/>
         <PromotionGrid/>
         <CategoryRow/>
-        <ProductGrid/>
         <PromotionGrid2/>
         <Treanding/>
         <ProductGrid/>
@@ -29,7 +28,6 @@ const Home = () => {
         <Collections/>
         <Craftsmanship/>
         <StoreLocator/>
-        <Craftsmanship/>
         <CustomerStoriesPage/>
     </div>
   )
