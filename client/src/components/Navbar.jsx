@@ -61,7 +61,7 @@ const Navbar = () => {
       ],
     },
     {
-      name: 'Custom Design',
+      name: 'Customize',
       submenu: [
         { name: 'Design Your Own', href: '/custom/design' },
         { name: 'Upload Inspiration', href: '/custom/upload' },

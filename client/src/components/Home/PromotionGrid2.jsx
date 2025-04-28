@@ -2,34 +2,32 @@ import React from "react";
 
 const promotions = [
   {
-    title: "Your First Diamond",
-    subtitle: "Begin Your Legacy",
-    cta: "Explore Now",
-    bgImage: "/images/diamond.jpeg",
+    title: "First Anniversary Gift",
+    subtitle: "Celebrate Love & Moments",
+    cta: "Shop Now",
+    bgImage: "/images/g2.jpg",
   },
   {
-    title: "Celebrating Success",
-    subtitle: "Milestone Collections",
-    cta: "Discover More",
-    bgImage: "/images/success-bg.jpg",
+    title: "Success Celebration",
+    subtitle: "Achieve & Celebrate Milestones",
+    cta: "Learn More",
+    bgImage: "/images/g5.jpg",
   },
   {
-    title: "New Moms",
-    subtitle: "Timeless Treasures",
-    cta: "Shop Gifts",
-    bgImage: "/images/moms-bg.jpg",
+    title: "Gift for New Moms",
+    subtitle: "Timeless and Beautiful",
+    cta: "Browse Gifts",
+    bgImage: "/images/g6.jpg",
   },
   {
     title: "Golden Anniversary",
-    subtitle: "50 Years Celebration",
-    cta: "View Collection",
-    bgImage: "/images/anniversary-bg.jpeg",
+    subtitle: "Celebrate 50 Glorious Years",
+    cta: "Explore Collection",
+    bgImage: "/images/g7.jpg",
   },
-  // Added 10 more products
-
 ];
 
-const PromotionGrid = () => {
+const PromotionGrid2 = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
@@ -38,7 +36,7 @@ const PromotionGrid = () => {
         <div className="relative rounded-3xl overflow-hidden h-[650px] group shadow-2xl mt-6">
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-            style={{ backgroundImage: `url('/images/featured-bg.jpg')` }}
+            style={{ backgroundImage: `url('/images/g4.jpg')` }}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-purple-300/80 via-white/30 to-transparent" />
           </div>
@@ -73,7 +71,6 @@ const PromotionGrid = () => {
               <div className="mt-4 text-center">
                 <h3 className="text-xl font-bold text-gray-800">{promo.title}</h3>
                 <p className="text-sm text-gray-600 mb-4">{promo.subtitle}</p>
-               
               </div>
             </div>
           ))}
@@ -84,4 +81,4 @@ const PromotionGrid = () => {
   );
 };
 
-export default PromotionGrid;
+export default PromotionGrid2;

@@ -88,12 +88,15 @@ const Craftsmanship = () => {
                 </li>
               ))}
             </ul>
+
+            {/* Button */}
             <a 
               href="#about" 
               className="inline-block mt-6 px-8 py-3.5 bg-amber-400 hover:bg-amber-500 text-black font-semibold text-base md:text-lg rounded-full transition-all duration-300 shadow-md hover:shadow-amber-400/30"
             >
               Learn More About Our Process
             </a>
+
           </div>
         </div>
 
@@ -101,5 +104,7 @@ const Craftsmanship = () => {
     </section>
   );
 };
+
+export default Craftsmanship;
 
 export default Craftsmanship;

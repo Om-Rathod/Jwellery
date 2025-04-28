@@ -8,6 +8,10 @@ import StoreLocator from '../components/Home/StoreLocator'
 import BannerGrid from '../components/Home/BannerGrid'
 import Collections from '../components/Home/Collections'
 import Craftsmanship from '../components/Home/Collections2'
+import ImageGallery from '../components/Home/ImageGallery'
+import PromotionGrid2 from '../components/Home/PromotionGrid2'
+import Treanding from '../components/Home/Treanding'
+import CustomerStoriesPage from '../components/Home/CustomerStoriesPage'
 
 const Home = () => {
   return (
@@ -16,12 +20,17 @@ const Home = () => {
         <Subsection/>
         <PromotionGrid/>
         <CategoryRow/>
-        <PromotionGrid/>
         <ProductGrid/>
+        <PromotionGrid2/>
+        <Treanding/>
+        <ProductGrid/>
+        <ImageGallery/>
         <BannerGrid/>
         <Collections/>
         <Craftsmanship/>
         <StoreLocator/>
+        <Craftsmanship/>
+        <CustomerStoriesPage/>
     </div>
   )
 }

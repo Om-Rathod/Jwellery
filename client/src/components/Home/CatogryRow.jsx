@@ -1,55 +1,43 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const categories = [
-  {
-    title: "Wrapped with Love",
-    icon: "/images/gift-icon.png",
-    isIcon: true,
-    link: "/gifts",
-  },
-  {
-    title: "LATEST RINGS",
-    image: "/images/ring.jpeg",
-    link: "/rings",
-  },
-  { 
-    title: "TRENDY BRACELETS",
-    image: "/images/bracelet.avif",
-    link: "/bracelets",
-  },
-  {
-    title: "MUST-HAVE EARRINGS",
-    image: "/images/earrings.avif",
-    link: "/earrings",
-  },
-  {
-    title: "ALL-DAY CHAINS",
-    image: "/images/chain.jpg",
-    link: "/chains",
-  },
-  {
-    title: "ON-TREND NECKLACES",
-    image: "/images/nacklase.jpeg",
-    link: "/necklaces",
-  },
-  {
-    title: "UNDER ₹30K STYLES",
-    image: "/images/under30k.webp",
-    link: "/under-30k",
-  },
+  { title: "LATEST RINGS", image: "/images/ring.jpeg", link: "/rings" },
+  { title: "TRENDY BRACELETS", image: "/images/bracelet.avif", link: "/bracelets" },
+  { title: "MUST-HAVE EARRINGS", image: "/images/earrings.avif", link: "/earrings" },
+  { title: "ALL-DAY CHAINS", image: "/images/chain.jpg", link: "/chains" },
+  { title: "ON-TREND NECKLACES", image: "/images/nacklase.jpeg", link: "/necklaces" },
+  { title: "UNDER ₹30K STYLES", image: "/images/under30k.webp", link: "/under-30k" },
 ];
+
 const CategoryRow = () => {
+  const [visibleCount, setVisibleCount] = useState(4);
   const scrollContainer = useRef(null);
 
   const scroll = (direction) => {
     if (scrollContainer.current) {
-      const scrollAmount = direction === 'left' ? -300 : 300;
+      const scrollAmount = direction === "left" ? -400 : 400;
       scrollContainer.current.scrollBy({
         left: scrollAmount,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setVisibleCount(categories.length); // Desktop
+      } else if (window.innerWidth >= 768) {
+        setVisibleCount(5); // Tablet
+      } else {
+        setVisibleCount(3); // Mobile
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative group">
