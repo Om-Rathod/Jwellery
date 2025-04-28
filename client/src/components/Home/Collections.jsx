@@ -35,7 +35,7 @@ const Collections = () => {
     {
       title: "Gold Elegance",
       description: "Timeless 22K gold pieces crafted for everyday luxury",
-      imageUrl: "https://images.pexels.com/photos/10984701/pexels-photo-10984701.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      imageUrl: "/images/goldelegance.jpg",
       count: 28,
       price: 999
     },
@@ -56,21 +56,21 @@ const Collections = () => {
     {
       title: "Heritage Collection",
       description: "Traditional designs with contemporary elegance",
-      imageUrl: "https://images.pexels.com/photos/8100784/pexels-photo-8100784.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      imageUrl: "/images/heritagecollection.jpg",
       count: 20,
       price: 1299
     },
     {
       title: "Statement Necklaces",
       description: "Bold and beautiful neckpieces for every occasion",
-      imageUrl: "https://images.pexels.com/photos/11838178/pexels-photo-11838178.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      imageUrl: "/images/necklace.jpg",
       count: 15,
       price: 1599
     },
     {
       title: "Designer Earrings",
       description: "From subtle studs to dramatic chandeliers",
-      imageUrl: "https://images.pexels.com/photos/12984392/pexels-photo-12984392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      imageUrl: "/images/earringss.webp",
       count: 32,
       price: 799
     }
